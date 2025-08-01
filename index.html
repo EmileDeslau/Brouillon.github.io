@@ -2,74 +2,138 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Bienvenue</title>
+  <title>Nom du Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .site-header {
-      /* Remplace la couleur de fond par un dégradé */
-      background: linear-gradient(90deg, #003366 0%, #66b3ff 100%);
-      width: 100%;
-      padding: 40px 0;
-      box-sizing: border-box;
-    }
-
-    .site-header .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 28px;
-      font-weight: bold;
-      text-align: center;
-      user-select: none;
-    }
-
     body {
-  margin: 0;
-  background-color: #000; /* fond noir */
-  color: white; /* texte blanc pour visibilité */
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin: 20px 0 40px;
-  color: #003366; /* bleu marine */
-  font-size: 32px;
-}
-
-
-
-    /* ✅ Déplacé ici */
-    .image-row {
-      display: flex;
-      justify-content: space-around;
-      margin: 40px 0;
+      margin: 0;
+      background: url('pizza.webp') center/cover no-repeat #000;
+      color: #222;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
     }
-
-    .image-row img {
-      width: 30%;
-      max-width: 300px;
-      height: auto;
+    .site-header {
+      background: linear-gradient(90deg, #003366 0%, #66b3ff 100%);
+      color: #fff;
+      padding: 40px 0 20px 0;
+      text-align: center;
+    }
+    nav {
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #66b3ff;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+      padding: 32px;
+    }
+    h1, h2 {
+      color: #003366;
+      text-align: center;
+    }
+    .menu-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .menu-item {
+      background: #f8f8f8;
       border-radius: 8px;
-    }     
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      padding: 20px;
+      width: 260px;
+      text-align: center;
+    }
+    .menu-item img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .contact-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-  
   <header class="site-header">
-    <div class="container">Je te montre de quoi je suis capable :)</div>
+    <h1>Nom du Restaurant</h1>
+    <p>La meilleure pizza en ville !</p>
   </header>
-
-  <div class="pizza-webp"></div>
-
-  <h1>Bonjour, ici mange pour remplir le bedon mon ptit criss !</h1>
-  <div class="image-row">
-    <img src="pizza.webp" alt="Image gauche" />
-    <img src="cocktails.avif" alt="Image milieu" />
-    <img src="image3.jpg" alt="Image droite" />
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="container" id="accueil">
+    <h2>Bienvenue chez nous !</h2>
+    <p>
+      Découvrez nos pizzas artisanales, préparées avec des ingrédients frais et locaux.<br>
+      Ambiance conviviale, service rapide et plats savoureux vous attendent !
+    </p>
   </div>
-
-  
-
+  <div class="container" id="menu">
+    <h2>Notre Menu</h2>
+    <div class="menu-section">
+      <div class="menu-item">
+        <img src="pizza.webp" alt="Pizza Margherita">
+        <h3>Pizza Margherita</h3>
+        <p>Tomate, mozzarella, basilic frais</p>
+        <strong>12€</strong>
+      </div>
+      <div class="menu-item">
+        <img src="pizza.webp" alt="Pizza Reine">
+        <h3>Pizza Reine</h3>
+        <p>Jambon, champignons, mozzarella</p>
+        <strong>14€</strong>
+      </div>
+      <div class="menu-item">
+        <img src="pizza.webp" alt="Pizza 4 Fromages">
+        <h3>Pizza 4 Fromages</h3>
+        <p>Mozzarella, gorgonzola, chèvre, parmesan</p>
+        <strong>15€</strong>
+      </div>
+    </div>
+  </div>
+  <div class="container contact-section" id="contact">
+    <h2>Contact & Réservations</h2>
+    <p>
+      📞 01 23 45 67 89<br>
+      📍 123 rue de la Pizza, 75000 Paris<br>
+      ✉️ contact@restaurant.fr
+    </p>
+    <p>
+      Ouvert du mardi au dimanche, 12h-14h30 & 18h30-23h
+    </p>
+  </div>
+  <footer>
+    &copy; 2025 Nom du Restaurant — Tous droits réservés
+  </footer>
 </body>
 </html>
