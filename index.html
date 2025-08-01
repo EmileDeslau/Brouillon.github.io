@@ -7,7 +7,7 @@
     .site-header {
       background-color: #007BFF;
       width: 100%;
-      padding: 40px 0; /* plus de hauteur pour voir le bleu */
+      padding: 40px 0;
       box-sizing: border-box;
     }
 
@@ -19,42 +19,40 @@
       font-size: 28px;
       font-weight: bold;
       text-align: center;
-      user-select: none; /* optionnel */
+      user-select: none;
     }
 
     body {
-      margin: 0; /* enlever marges par défaut */
+      margin: 0;
+    }
+
+    /* ✅ CSS pour les images */
+    .image-row {
+      display: flex;
+      justify-content: space-around;
+      margin: 40px 0;
+    }
+
+    .image-row img {
+      width: 30%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
     }
   </style>
-  .image-row {
-  display: flex;
-  justify-content: space-around;
-  margin: 40px 0;
-}
-
-.image-row img {
-  width: 30%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 8px;
-}
-
 </head>
 <body>
-
   <header class="site-header">
-    <div class="container">
-      Mon Site Web
-    </div>
+    <div class="container">Mon Site Web</div>
   </header>
-  <div class="image-row">
-  <img src="image1.jpg" alt="Image gauche" />
-  <img src="image2.jpg" alt="Image milieu" />
-  <img src="image3.jpg" alt="Image droite" />
-</div>
 
+  <!-- ✅ Section des images -->
+  <div class="image-row">
+    <img src="image1.jpg" alt="Image gauche" />
+    <img src="image2.jpg" alt="Image milieu" />
+    <img src="image3.jpg" alt="Image droite" />
+  </div>
 
   <h1>Bonjour, ceci est mon site GitHub Pages !</h1>
-
 </body>
 </html>
