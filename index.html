@@ -7,7 +7,9 @@
   <style>
     body {
       margin: 0;
-      background: url('pizza.webp') center/cover no-repeat #000;
+      /* Remplace ce background : */
+      /* background: url('pizza.webp') center/cover no-repeat #000; */
+      background: radial-gradient(ellipse at center, #a80000 0%, #1a0000 100%);
       color: #222;
       font-family: Arial, sans-serif;
       min-height: 100vh;
@@ -176,10 +178,235 @@
       margin-left: 40px;
       filter: drop-shadow(0 0 24px #000a);
     }
+    .reservation-cover {
+      background: url('salle.jpg') center/cover no-repeat;
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .reservation-content {
+      background: rgba(0,0,0,0.7);
+      padding: 48px 64px;
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 32px #000a;
+    }
+    .reservation-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+    .reservation-content p {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+    }
+    .reservation-btn {
+      display: inline-block;
+      padding: 14px 38px;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      background: transparent;
+      border-radius: 32px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .reservation-btn:hover {
+      background: #ffd700;
+      color: #222;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s, transform 1s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reservation-hero {
+      width: 100vw;
+      max-width: 100vw;
+      overflow: hidden;
+      margin-left: -50vw;
+      left: 50%;
+      position: relative;
+      margin-right: -50vw;
+      /* plus de position absolue ni de bouton flottant */
+    }
+    .reservation-hero img {
+      width: 100vw;
+      max-width: 100vw;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      filter: brightness(0.85);
+      border: none;
+    }
+    .reservation-hero-btn {
+      position: absolute;
+      top: 65%; /* Était 50%, mets 60% ou 65% pour descendre */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffd700;
+      color: #a80000;
+      font-size: 2.2rem;
+      font-weight: bold;
+      padding: 28px 64px;
+      border-radius: 40px;
+      border: none;
+      text-decoration: none;
+      box-shadow: 0 4px 32px #000a;
+      transition: background 0.2s, color 0.2s;
+      z-index: 2;
+      cursor: pointer;
+    }
+    .reservation-hero-btn:hover {
+      background: #a80000;
+      color: #ffd700;
+    }
+    /* Masque tout bouton dans l'image si jamais il y en a un */
+    .reservation-hero img + button,
+    .reservation-hero button {
+      display: none !important;
+    }
+    .menu-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #0001;
+      padding: 32px 24px;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+    .menu-title {
+      color: #d32f2f;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .menu-arrow {
+      font-size: 1.5rem;
+      color: #d32f2f;
+      margin-top: 4px;
+    }
+    .menu-flex {
+      display: flex;
+      gap: 40px;
+    }
+    .menu-img-col {
+      flex: 1.2;
+      min-width: 340px;
+    }
+    .menu-list-col {
+      flex: 1;
+      min-width: 320px;
+    }
+    .menu-main-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      object-fit: cover;
+      max-height: 180px;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #eee;
+      padding: 18px 0 12px 0;
+      gap: 16px;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item-title {
+      font-weight: bold;
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+    }
+    .menu-item-desc {
+      color: #666;
+      font-size: 1rem;
+    }
+    .menu-item-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-item-price {
+      color: #d32f2f;
+      font-weight: bold;
+      font-size: 1.2rem;
+      min-width: 70px;
+      text-align: right;
+    }
+    .menu-add-btn {
+      background: #d32f2f;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-add-btn:hover {
+      background: #a80000;
+      color: #ffd700;
+    }
+    .menu-choix {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin: 32px 0 0 0;
+    }
+    .menu-choix-item {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #0001;
+      padding: 24px 32px 18px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .menu-choix-item:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 6px 24px #0002;
+    }
+    .menu-choix-item img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .menu-choix-item span {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #a80000;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
-  <header class="cover-header">
+  <header class="cover-header" id="accueil">
     <div class="cover-top">
       <img src="logo.png" alt="Logo Hawgs" class="logo">
       <div class="cover-links">
@@ -190,21 +417,26 @@
       </div>
     </div>
     <nav class="cover-nav">
-      <a href="#" class="active">ACCUEIL</a>
-      <a href="#">À PROPOS</a>
-      <a href="#">CONTACT</a>
+      <a href="#accueil" class="active">ACCUEIL</a>
+      <a href="#apropos">À PROPOS</a>
+      <a href="#contact">CONTACT</a>
     </nav>
     <div class="cover-content">
       <div class="cover-text">
         <h2>DÉJEUNER ET DÎNER</h2>
         <h1>Hawgs Deli</h1>
-        <div class="welcome-banner">BIENVENUE</div>
-        <button>RÉSERVER UNE TABLE</button>
+        <div class="welcome-banner" style="margin-bottom:32px;">BIENVENUE CHEZ NOUS !</div>
       </div>
       <img src="mascotte.png" alt="Mascotte moto" class="mascotte">
     </div>
   </header>
-  <div class="container" id="accueil">
+
+  <div class="reservation-hero" style="margin-bottom:40px; position:relative;">
+    <img src="salle.jpg" alt="Salle du restaurant" style="width:100vw;max-width:100vw;height:380px;object-fit:cover;display:block;margin:0 auto;filter:brightness(0.85);border:none;">
+    <a href="https://www.opentable.com/" target="_blank" class="reservation-hero-btn">RÉSERVER EN LIGNE</a>
+  </div>
+
+  <div class="container" id="apropos">
     <h2>Bienvenue chez nous !</h2>
     <p>
       Découvrez nos pizzas artisanales, préparées avec des ingrédients frais et locaux.<br>
@@ -213,24 +445,111 @@
   </div>
   <div class="container" id="menu">
     <h2>Notre Menu</h2>
-    <div class="menu-section">
-      <div class="menu-item">
-        <img src="pizza.webp" alt="Pizza Margherita">
-        <h3>Pizza Margherita</h3>
-        <p>Tomate, mozzarella, basilic frais</p>
-        <strong>12€</strong>
+    <div class="menu-choix">
+      <div class="menu-choix-item">
+        <img src="poutine.jpg" alt="Poutine" />
+        <span>Poutine</span>
       </div>
-      <div class="menu-item">
-        <img src="pizza.webp" alt="Pizza Reine">
-        <h3>Pizza Reine</h3>
-        <p>Jambon, champignons, mozzarella</p>
-        <strong>14€</strong>
+      <div class="menu-choix-item">
+        <img src="pizza.webp" alt="Pizza" />
+        <span>Pizza</span>
       </div>
-      <div class="menu-item">
-        <img src="pizza.webp" alt="Pizza 4 Fromages">
-        <h3>Pizza 4 Fromages</h3>
-        <p>Mozzarella, gorgonzola, chèvre, parmesan</p>
-        <strong>15€</strong>
+      <div class="menu-choix-item">
+        <img src="burger.jpg" alt="Hamburger" />
+        <span>Hamburger</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-container">
+    <h2 class="menu-title">
+      Nos Fameuses Poutines
+      <span class="menu-arrow">&#9660;</span>
+    </h2>
+    <div class="menu-flex">
+      <div class="menu-img-col">
+        <img src="poutine.jpg" alt="Poutine" class="menu-main-img">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Texane</div>
+            <div class="menu-item-desc">Sauce à côtes levées</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">14,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Italienne</div>
+            <div class="menu-item-desc">Avec sauce à la viande</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">18,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Poulet et jalapeño</div>
+            <div class="menu-item-desc">Filets de poulet panés, piments jalapeño, poivrons doux en dés et sauce poutine sriracha</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">19,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Saucisse italienne</div>
+            <div class="menu-item-desc">Poutine saucisse italienne</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">18,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-list-col">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Hawgs</div>
+            <div class="menu-item-desc">Viande fumée</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">19,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Régulière</div>
+            <div class="menu-item-desc">Poutine Régulière</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">14,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Côtes levées</div>
+            <div class="menu-item-desc">Porc effiloché avec notre fameuse sauce aux côtes levées avec jalapeño frit</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">19,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-title">Poutine Philly steak</div>
+            <div class="menu-item-desc">Philly steak, sauce au poivre, oignons frits et piments verts</div>
+          </div>
+          <div class="menu-item-right">
+            <span class="menu-item-price">19,00&nbsp;$</span>
+            <button class="menu-add-btn">+</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -248,5 +567,22 @@
   <footer>
     &copy; 2025 Nom du Restaurant — Tous droits réservés
   </footer>
+  <script>
+  // Ajoute la classe fade-in à tous les containers sauf le header
+  document.querySelectorAll('.container, div[style*="salle.jpg"]').forEach(el => {
+    el.classList.add('fade-in');
+  });
+
+  function revealOnScroll() {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+</script>
 </body>
 </html>
