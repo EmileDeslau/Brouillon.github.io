@@ -79,18 +79,131 @@
       padding: 18px 0;
       margin-top: 40px;
     }
+    .cover-header {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #a80000 0%, #1a0000 100%);
+      color: #fff;
+      padding: 0;
+      position: relative;
+    }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 40px 0 40px;
+    }
+    .logo {
+      height: 70px;
+    }
+    .cover-links img {
+      height: 40px;
+      margin-left: 18px;
+      vertical-align: middle;
+    }
+    .cover-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 40px;
+      padding: 10px 60px 0 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .cover-nav a {
+      color: #ffd700;
+      text-decoration: none;
+      padding: 0 10px;
+      transition: color 0.2s;
+    }
+    .cover-nav a.active,
+    .cover-nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #ffd700;
+    }
+    .cover-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 80px 0 80px;
+    }
+    .cover-text {
+      max-width: 600px;
+    }
+    .cover-text h2 {
+      color: #ffd700;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .cover-text h1 {
+      font-size: 4rem;
+      margin: 0 0 20px 0;
+      font-family: serif;
+      font-weight: bold;
+    }
+    .welcome-banner {
+      display: inline-block;
+      background: #ffd700;
+      color: #222;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 8px 32px;
+      margin: 18px 0;
+      border-radius: 4px;
+      box-shadow: 2px 2px 8px #0006;
+      font-family: Arial Black, Arial, sans-serif;
+      letter-spacing: 2px;
+    }
+    .cover-text button {
+      margin-top: 24px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 24px;
+      background: #fff;
+      color: #a80000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cover-text button:hover {
+      background: #ffd700;
+      color: #222;
+    }
+    .mascotte {
+      max-width: 420px;
+      width: 40vw;
+      height: auto;
+      margin-left: 40px;
+      filter: drop-shadow(0 0 24px #000a);
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <h1>Nom du Restaurant</h1>
-    <p>La meilleure pizza en ville !</p>
+  <header class="cover-header">
+    <div class="cover-top">
+      <img src="logo.png" alt="Logo Hawgs" class="logo">
+      <div class="cover-links">
+        <a href="#"><img src="doordash.png" alt="Doordash"></a>
+        <a href="#"><img src="ubereats.png" alt="Uber Eats"></a>
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <nav class="cover-nav">
+      <a href="#" class="active">ACCUEIL</a>
+      <a href="#">À PROPOS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+    <div class="cover-content">
+      <div class="cover-text">
+        <h2>DÉJEUNER ET DÎNER</h2>
+        <h1>Hawgs Deli</h1>
+        <div class="welcome-banner">BIENVENUE</div>
+        <button>RÉSERVER UNE TABLE</button>
+      </div>
+      <img src="mascotte.png" alt="Mascotte moto" class="mascotte">
+    </div>
   </header>
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#menu">Menu</a>
-    <a href="#contact">Contact</a>
-  </nav>
   <div class="container" id="accueil">
     <h2>Bienvenue chez nous !</h2>
     <p>
